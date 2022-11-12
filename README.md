@@ -2,6 +2,9 @@
 
 Sample Project
 
+![overview](./docs/overview.jpg)
+
+
 - Common
   - TypeScript 
   - Nx monorepo
@@ -12,6 +15,7 @@ Sample Project
 - Frontend
   - Next.js
   - Urql
+  - Chakra UI
 - Infrastructure
   - TODO Cloud Run
   - TODO Vercel
