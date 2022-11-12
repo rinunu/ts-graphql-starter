@@ -25,7 +25,7 @@
       "executor": "@nrwl/jest:jest",
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "options": {
-        "jestConfig": "packages/libs/urql-storybook-helper/jest.config.ts",
+        "jestConfig": "libs/libs/urql-storybook-helper/jest.config.ts",
         "passWithNoTests": true
       }
     }

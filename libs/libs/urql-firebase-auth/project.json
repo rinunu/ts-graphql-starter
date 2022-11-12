@@ -23,9 +23,9 @@
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/packages/libs/urql-firebase-auth"],
+      "outputs": ["{workspaceRoot}/coverage/libs/libs/urql-firebase-auth"],
       "options": {
-        "jestConfig": "packages/libs/urql-firebase-auth/jest.config.ts",
+        "jestConfig": "libs/libs/urql-firebase-auth/jest.config.ts",
         "passWithNoTests": true
       }
     }
