@@ -1,4 +1,5 @@
 {
+  "name": "browser-auth",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/browser/auth/src",
   "projectType": "library",

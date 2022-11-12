@@ -1,4 +1,5 @@
 {
+  "name": "browser-sentry",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/browser/sentry/src",
   "projectType": "library",

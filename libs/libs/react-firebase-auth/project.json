@@ -1,4 +1,5 @@
 {
+  "name": "libs-react-firebase-auth",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/libs/react-firebase-auth/src",
   "projectType": "library",
