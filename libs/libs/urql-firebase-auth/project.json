@@ -1,4 +1,5 @@
 {
+  "name": "libs-urql-firebase-auth",
   "$schema": "../../../node_modules/nx/schemas/project-schema.json",
   "sourceRoot": "libs/libs/urql-firebase-auth/src",
   "projectType": "library",
