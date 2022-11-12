@@ -3,6 +3,7 @@ import { pipe, map, mergeMap, fromPromise, fromValue } from 'wonka';
 
 /**
  * https://github.com/FormidableLabs/urql/blob/main/packages/storybook-addon/src/exchange.ts
+ * https://github.com/FormidableLabs/urql/blob/main/LICENSE
  */
 export const getStorybookExchange =
   <T extends { parameters: any }>(context: T): Exchange =>
