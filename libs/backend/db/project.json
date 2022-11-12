@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "name": "backend-db",
+  "sourceRoot": "libs/backend/db/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/backend/db/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/backend/db"],
+      "options": {
+        "jestConfig": "libs/backend/db/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["api-db"]
+}

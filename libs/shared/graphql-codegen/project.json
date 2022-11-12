@@ -1,0 +1,51 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "name": "shared-graphql-codegen",
+  "sourceRoot": "libs/shared/graphql-codegen/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/shared/graphql-codegen",
+        "main": "libs/shared/graphql-codegen/src/index.ts",
+        "tsConfig": "libs/shared/graphql-codegen/tsconfig.lib.json",
+        "assets": ["libs/shared/graphql-codegen/*.md"]
+      },
+      "dependsOn": ["codegen"]
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/shared/graphql-codegen/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/shared/graphql-codegen"],
+      "options": {
+        "jestConfig": "libs/shared/graphql-codegen/jest.config.ts",
+        "passWithNoTests": true
+      }
+    },
+    "codegen": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx graphql-codegen --config codegen.yml",
+        "cwd": "libs/shared/graphql-codegen"
+      },
+      "inputs": ["{workspaceRoot}/schema.gql"],
+      "outputs": ["{projectRoot}/src/lib/generated"]
+    },
+    "serve": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "npx graphql-codegen --config codegen.yml --watch",
+        "cwd": "libs/shared/graphql-codegen"
+      }
+    }
+  },
+  "tags": ["shared-graphql-codegen"]
+}

@@ -1,0 +1,42 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  previewFeatures = ["referentialIntegrity"]
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+  referentialIntegrity = "prisma"
+}
+
+model User {
+  id      String @id @db.VarChar(100)
+  name    String
+  posts   Post[]
+  createdAt  DateTime
+  updatedAt  DateTime
+
+  @@map("user")
+}
+
+model FirebaseUser {
+  firebaseUserId      String @id @db.VarChar(100)
+  userId      String @db.VarChar(100)
+  createdAt  DateTime
+
+  @@map("firebase_user")
+}
+
+model Post {
+  id         String        @id @db.VarChar(100)
+  content    String
+  authorId   String
+  author     User       @relation(fields: [authorId], references: [id])
+  createdAt  DateTime
+
+  @@map("post")
+  @@index([authorId])
+}

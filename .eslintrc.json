@@ -1,0 +1,118 @@
+{
+  "root": true,
+  "ignorePatterns": ["**/*"],
+  "plugins": ["@nrwl/nx", "unused-imports"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "rules": {
+        "@nrwl/nx/enforce-module-boundaries": [
+          "error",
+          {
+            "enforceBuildableLibDependency": true,
+            "allow": [],
+            "depConstraints": [
+              {
+                "sourceTag": "api-bff",
+                "onlyDependOnLibsWithTags": [
+                  "api-sample",
+                  "api-user",
+                  "api-firebase-auth",
+                  "api-sentry"
+                ]
+              },
+              {
+                "sourceTag": "api-sample",
+                "onlyDependOnLibsWithTags": ["api-db", "api-common"]
+              },
+              {
+                "sourceTag": "api-user",
+                "onlyDependOnLibsWithTags": ["api-db", "api-common"]
+              },
+              {
+                "sourceTag": "api-firebase-auth",
+                "onlyDependOnLibsWithTags": [
+                  "api-db",
+                  "api-common",
+                  "api-user",
+                  "api-sentry"
+                ]
+              },
+              {
+                "sourceTag": "browser-app",
+                "onlyDependOnLibsWithTags": [
+                  "browser-sample",
+                  "browser-auth",
+                  "browser-sentry",
+                  "browser-chakra",
+                  "browser-urql",
+                  "browser-common-components",
+                  "shared-graphql-codegen",
+                  "react-firebase-auth",
+                  "urql-firebase-auth"
+                ]
+              },
+              {
+                "sourceTag": "browser-urql",
+                "onlyDependOnLibsWithTags": ["urql-firebase-auth"]
+              },
+              {
+                "sourceTag": "browser-sample",
+                "onlyDependOnLibsWithTags": [
+                  "browser-common-components",
+                  "browser-route",
+                  "browser-fixtures",
+                  "shared-graphql-codegen",
+                  "urql-storybook-helper"
+                ]
+              },
+              {
+                "sourceTag": "browser-auth",
+                "onlyDependOnLibsWithTags": [
+                  "browser-common-components",
+                  "react-firebase-auth",
+                  "shared-graphql-codegen"
+                ]
+              },
+              {
+                "sourceTag": "browser-common-components",
+                "onlyDependOnLibsWithTags": [
+                  "browser-route",
+                  "browser-fixtures",
+                  "shared-graphql-codegen",
+                  "react-firebase-auth"
+                ]
+              },
+              {
+                "sourceTag": "browser-storybook-host",
+                "onlyDependOnLibsWithTags": [
+                  "browser-chakra",
+                  "browser-urql",
+                  "shared-graphql-codegen",
+                  "fixed-urql-storybook-addon"
+                ]
+              },
+              {
+                "sourceTag": "browser-fixtures",
+                "onlyDependOnLibsWithTags": ["shared-graphql-codegen"]
+              }
+            ]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:@nrwl/nx/typescript"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "extends": ["plugin:@nrwl/nx/javascript"],
+      "rules": {}
+    }
+  ],
+  "rules": {
+    "unused-imports/no-unused-imports": "error"
+  }
+}

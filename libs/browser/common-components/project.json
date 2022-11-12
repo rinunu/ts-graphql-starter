@@ -1,0 +1,25 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/browser/common-components/src",
+  "projectType": "library",
+  "tags": ["browser-common-components"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "libs/browser/common-components/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/browser/common-components"],
+      "options": {
+        "jestConfig": "libs/browser/common-components/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "name": "backend-firebase-auth",
+  "sourceRoot": "libs/backend/firebase-auth/src",
+  "projectType": "library",
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/backend/firebase-auth/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/backend/firebase-auth"],
+      "options": {
+        "jestConfig": "libs/backend/firebase-auth/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["api-firebase-auth"]
+}

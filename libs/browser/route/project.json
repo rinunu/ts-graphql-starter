@@ -1,0 +1,33 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/browser/route/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/browser/route",
+        "main": "libs/browser/route/src/index.ts",
+        "tsConfig": "libs/browser/route/tsconfig.lib.json",
+        "assets": ["libs/browser/route/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/browser/route/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/browser/route"],
+      "options": {
+        "jestConfig": "libs/browser/route/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["browser-route"]
+}

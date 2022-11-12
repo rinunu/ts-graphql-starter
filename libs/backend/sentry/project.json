@@ -1,0 +1,34 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "name": "backend-sentry",
+  "sourceRoot": "libs/backend/sentry/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/backend/sentry",
+        "main": "libs/backend/sentry/src/index.ts",
+        "tsConfig": "libs/backend/sentry/tsconfig.lib.json",
+        "assets": ["libs/backend/sentry/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/backend/sentry/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/backend/sentry"],
+      "options": {
+        "jestConfig": "libs/backend/sentry/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["api-sentry"]
+}
