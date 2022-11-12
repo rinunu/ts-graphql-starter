@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { Post } from './Post';
+import { Post } from './post';
 import { nanoid } from 'nanoid';
 import { PrismaService } from '@backend/db';
 import { TimeService } from '@backend/common';
