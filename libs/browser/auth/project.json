@@ -1,0 +1,23 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/browser/auth/src",
+  "projectType": "library",
+  "tags": ["browser-auth"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/browser/auth/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/browser/auth"],
+      "options": {
+        "jestConfig": "libs/browser/auth/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

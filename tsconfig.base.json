@@ -1,0 +1,47 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "strict": true,
+    "rootDir": ".",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2015",
+    "module": "esnext",
+    "lib": ["es2017", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "esModuleInterop": true,
+    "baseUrl": ".",
+    "paths": {
+      "@backend/common": ["libs/backend/common/src/index.ts"],
+      "@backend/db": ["libs/backend/db/src/index.ts"],
+      "@backend/firebase-auth": ["libs/backend/firebase-auth/src/index.ts"],
+      "@backend/sample": ["libs/backend/sample/src/index.ts"],
+      "@backend/sentry": ["libs/backend/sentry/src/index.ts"],
+      "@backend/user": ["libs/backend/user/src/index.ts"],
+      "@browser/auth": ["libs/browser/auth/src/index.ts"],
+      "@browser/chakra": ["libs/browser/chakra/src/index.ts"],
+      "@browser/common-components": [
+        "libs/browser/common-components/src/index.ts"
+      ],
+      "@browser/fixtures": ["libs/browser/fixtures/src/index.ts"],
+      "@browser/route": ["libs/browser/route/src/index.ts"],
+      "@browser/sample": ["libs/browser/sample/src/index.ts"],
+      "@browser/sentry": ["libs/browser/sentry/src/index.ts"],
+      "@browser/storybook-host": ["libs/browser/storybook-host/src/index.ts"],
+      "@browser/urql": ["libs/browser/urql/src/index.ts"],
+      "@shared/graphql-codegen": ["libs/shared/graphql-codegen/src/index.ts"],
+      "fixed-urql-storybook-addon": [
+        "libs/libs/fixed-urql-storybook-addon/src/index.ts"
+      ],
+      "react-firebase-auth": ["libs/libs/react-firebase-auth/src/index.ts"],
+      "urql-firebase-auth": ["libs/libs/urql-firebase-auth/src/index.ts"],
+      "urql-storybook-helper": ["libs/libs/urql-storybook-helper/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}

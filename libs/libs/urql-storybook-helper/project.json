@@ -1,0 +1,34 @@
+{
+  "name": "libs-urql-storybook-helper",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/libs/urql-storybook-helper/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/libs/urql-storybook-helper",
+        "main": "libs/libs/urql-storybook-helper/src/index.ts",
+        "tsConfig": "libs/libs/urql-storybook-helper/tsconfig.lib.json",
+        "assets": ["libs/libs/urql-storybook-helper/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/libs/urql-storybook-helper/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "jestConfig": "packages/libs/urql-storybook-helper/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["urql-storybook-helper"]
+}

@@ -1,0 +1,56 @@
+version: '3'
+services:
+  mysql:
+    image: mariadb:10
+    ports:
+      - "13306:3306"
+    volumes:
+      - "mysql_data:/var/lib/mysql"
+      - "./log:/log"
+      - "./infra/local/mysql/conf.d:/etc/mysql/conf.d"
+      - "./infra/local/mysql/docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d"
+    environment:
+      MYSQL_ROOT_PASSWORD: pass
+      MYSQL_USER: user
+      MYSQL_PASSWORD: pass
+
+  pmm-server:
+    image: percona/pmm-server:2
+    container_name: pmm-server
+    ports:
+      - "443:443"
+    volumes:
+      - "pmm-data:/srv"
+    profiles:
+      - pmm
+
+  pmm-client:
+    image: percona/pmm-client:2
+    volumes:
+      - "pmm-client-data:/srv"
+      - "./log:/log" # mysql と共有
+      - ./tmp:/config
+    environment:
+      - PMM_AGENT_CONFIG_FILE=/config/pmm-agent.yaml
+    profiles:
+      - pmm
+
+  pmm-client-setup:
+    image: percona/pmm-client:2
+    volumes:
+      - "pmm-client-data:/srv"
+      - ./tmp:/config
+    environment:
+      - PMM_AGENT_CONFIG_FILE=/config/pmm-agent.yaml
+      - PMM_AGENT_SERVER_USERNAME=admin
+      - PMM_AGENT_SERVER_PASSWORD=admin
+      - PMM_AGENT_SERVER_ADDRESS=pmm-server:443
+      - PMM_AGENT_SERVER_INSECURE_TLS=true
+    profiles:
+      - tmp
+    entrypoint: pmm-agent setup
+
+volumes:
+  mysql_data:
+  pmm-data:
+  pmm-client-data:

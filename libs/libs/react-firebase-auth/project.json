@@ -1,0 +1,25 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/libs/react-firebase-auth/src",
+  "projectType": "library",
+  "tags": ["react-firebase-auth"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": [
+          "packages/libs/react-firebase-auth/**/*.{ts,tsx,js,jsx}"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/packages/libs/react-firebase-auth"],
+      "options": {
+        "jestConfig": "packages/libs/react-firebase-auth/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

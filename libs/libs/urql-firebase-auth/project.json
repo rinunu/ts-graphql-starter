@@ -1,0 +1,33 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/libs/urql-firebase-auth/src",
+  "projectType": "library",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/js:tsc",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/libs/libs/urql-firebase-auth",
+        "main": "libs/libs/urql-firebase-auth/src/index.ts",
+        "tsConfig": "libs/libs/urql-firebase-auth/tsconfig.lib.json",
+        "assets": ["libs/libs/urql-firebase-auth/*.md"]
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/libs/urql-firebase-auth/**/*.ts"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/packages/libs/urql-firebase-auth"],
+      "options": {
+        "jestConfig": "packages/libs/urql-firebase-auth/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": ["urql-firebase-auth"]
+}

@@ -1,0 +1,19 @@
+{
+  "projects": {
+    "my": {
+      "schemaPath": "graphql/schema.gql",
+      "includes": [
+        "**/*.graphql"
+      ],
+      "extensions": {
+        "endpoints": {
+          "local": {
+            "url": "http://localhost:3333/graphql",
+            "headers": {},
+            "introspect": false
+          }
+        }
+      }
+    }
+  }
+}

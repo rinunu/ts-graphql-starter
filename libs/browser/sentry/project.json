@@ -1,0 +1,23 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/browser/sentry/src",
+  "projectType": "library",
+  "tags": ["browser-sentry"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/browser/sentry/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/browser/sentry"],
+      "options": {
+        "jestConfig": "libs/browser/sentry/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}

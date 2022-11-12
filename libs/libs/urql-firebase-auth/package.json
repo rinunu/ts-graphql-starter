@@ -1,0 +1,5 @@
+{
+  "name": "@ts-graphql-starter/libs/urql-firebase-auth",
+  "version": "0.0.1",
+  "type": "commonjs"
+}

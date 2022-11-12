@@ -1,0 +1,47 @@
+# https://www.chromatic.com/docs/github-actions
+
+# Workflow name
+name: 'Chromatic'
+
+# Event for the workflow
+on:
+  push:
+    paths:
+      - 'libs/browser/**'
+      - '.github/workflows/chromatic.yml'
+
+# List of jobs
+jobs:
+  chromatic-deployment:
+    # Operating System
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+      NX_BRANCH: ${{github.ref_name}}
+
+    # Job steps
+    steps:
+      - uses: actions/checkout@v1
+
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: cache node_modules
+        # setup-node のキャッシュ利用は遅いため、自前で行う
+        # https://zenn.dev/odan/scraps/81b2738864a908
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node-${{ runner.os }}-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+
+      - name: Install dependencies
+        run: yarn
+        # 👇 Adds Chromatic as a step in the workflow
+      - name: Publish to Chromatic
+        uses: chromaui/action@v1
+        # Chromatic GitHub Action options
+        with:
+          # 👇 Chromatic projectToken, refer to the manage page to obtain it.
+          projectToken: ${{ secrets.CHROMATIC_PROJECT_TOKEN }}

@@ -1,0 +1,23 @@
+{
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "libs/browser/sample/src",
+  "projectType": "library",
+  "tags": ["browser-sample"],
+  "targets": {
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["libs/browser/sample/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["{workspaceRoot}/coverage/libs/browser/sample"],
+      "options": {
+        "jestConfig": "libs/browser/sample/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  }
+}
