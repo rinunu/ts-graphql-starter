@@ -10,15 +10,15 @@
       "outputs": ["{options.outputFile}"],
       "options": {
         "lintFilePatterns": [
-          "packages/libs/react-firebase-auth/**/*.{ts,tsx,js,jsx}"
+          "libs/libs/react-firebase-auth/**/*.{ts,tsx,js,jsx}"
         ]
       }
     },
     "test": {
       "executor": "@nrwl/jest:jest",
-      "outputs": ["{workspaceRoot}/coverage/packages/libs/react-firebase-auth"],
+      "outputs": ["{workspaceRoot}/coverage/libs/libs/react-firebase-auth"],
       "options": {
-        "jestConfig": "packages/libs/react-firebase-auth/jest.config.ts",
+        "jestConfig": "libs/libs/react-firebase-auth/jest.config.ts",
         "passWithNoTests": true
       }
     }
