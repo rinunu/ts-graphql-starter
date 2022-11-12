@@ -1,19 +1,15 @@
 /* eslint-disable */
-
-import { InitialOptionsTsJest } from 'ts-jest';
-
 export default {
-  displayName: 'backend-sample',
+  displayName: 'libs-prisma-test-fixture',
   preset: '../../../jest.preset.js',
   globals: {
     'ts-jest': {
       tsconfig: '<rootDir>/tsconfig.spec.json',
     },
   },
-  testEnvironment: 'node',
   transform: {
     '^.+\\.[tj]s$': 'ts-jest',
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
-  coverageDirectory: '../../../coverage/libs/backend/sample',
-} as InitialOptionsTsJest;
+  coverageDirectory: '../../../coverage/libs/libs/prisma-test-fixture',
+};

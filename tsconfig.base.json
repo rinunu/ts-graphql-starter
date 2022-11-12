@@ -38,6 +38,7 @@
       "fixed-urql-storybook-addon": [
         "libs/libs/fixed-urql-storybook-addon/src/index.ts"
       ],
+      "prisma-test-fixture": ["libs/libs/prisma-test-fixture/src/index.ts"],
       "react-firebase-auth": ["libs/libs/react-firebase-auth/src/index.ts"],
       "urql-firebase-auth": ["libs/libs/urql-firebase-auth/src/index.ts"],
       "urql-storybook-helper": ["libs/libs/urql-storybook-helper/src/index.ts"]

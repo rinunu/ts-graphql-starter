@@ -1,8 +1,9 @@
 create database main_db;
 
-create database main_db_test;
+create database main_test_1;
 
-create user 'pmm'@'%' identified by 'pass';
+create
+  user 'pmm'@'%' identified by 'pass';
 
 grant all
   on *.* to 'user'@'%';

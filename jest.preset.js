@@ -1,3 +1,7 @@
 const nxPreset = require('@nrwl/jest/preset').default;
 
-module.exports = { ...nxPreset };
+/** @type {import('ts-jest').InitialOptionsTsJest} */
+module.exports = {
+  ...nxPreset,
+  maxWorkers: 1,
+};
