@@ -11,10 +11,10 @@ Sample Project
   - GraphQL
   - Firebase Authentication
 - Backend
-  - NestJs
+  - NestJS
 - Frontend
   - Next.js
-  - Urql
+  - urql
   - Chakra UI
 - Infrastructure
   - TODO Cloud Run
@@ -27,6 +27,7 @@ Sample Project
 - Other
   - Sentry
   - TODO Asynchronous execution
+  - TODO Feature Flags
 
 ## Commands
 
