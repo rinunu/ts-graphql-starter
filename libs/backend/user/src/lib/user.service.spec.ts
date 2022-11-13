@@ -10,7 +10,7 @@ import {
 import { PrismaClient } from '@prisma/client';
 import { UserService } from './user.service';
 
-describe('PostService', () => {
+describe('UserService', () => {
   let subject: UserService;
   let prisma: PrismaClient;
 
