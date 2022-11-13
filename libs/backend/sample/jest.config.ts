@@ -1,7 +1,4 @@
 /* eslint-disable */
-
-import { InitialOptionsTsJest } from 'ts-jest';
-
 export default {
   displayName: 'backend-sample',
   preset: '../../../jest.preset.js',
@@ -16,4 +13,4 @@ export default {
   },
   moduleFileExtensions: ['ts', 'js', 'html'],
   coverageDirectory: '../../../coverage/libs/backend/sample',
-} as InitialOptionsTsJest;
+};
