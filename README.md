@@ -82,7 +82,3 @@ open https://localhost/
 # Chrome で "thisisunsafe" とキーボードを叩く
 ```
 
-## IntelliJ
-
-node_modules/.prisma を
-`Mark Directory as` > `Not Excluded`

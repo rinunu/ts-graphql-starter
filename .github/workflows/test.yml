@@ -1,0 +1,51 @@
+name: Test
+
+on:
+  push:
+    paths:
+      - 'libs/browser/**'
+      - 'libs/shared/**'
+      - 'libs/backend/**'
+      - '.github/workflows/test.yml'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    # 超えるようになったら並列化など検討する
+    timeout-minutes: 10
+
+    services:
+      mysql:
+        image: mysql:8
+        ports:
+          - 13306:3306
+        env:
+          MYSQL_DATABASE: main_test_1
+          MYSQL_USER: user
+          MYSQL_PASSWORD: pass
+          MYSQL_ROOT_PASSWORD: pass
+
+    env:
+      DATABASE_URL: 'mysql://user:pass@localhost:13306/main_test_1'
+
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+
+      - name: cache node_modules
+        # setup-node のキャッシュ利用は遅いため、自前で行う
+        # https://zenn.dev/odan/scraps/81b2738864a908
+        uses: actions/cache@v3
+        with:
+          path: node_modules
+          key: node-${{ runner.os }}-${{ hashFiles(format('{0}{1}', github.workspace, '/yarn.lock')) }}
+
+      - run: yarn
+
+      - name: Migration
+        run: |
+          npx prisma db push
+      - run: npx nx run-many --target=test --all

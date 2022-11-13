@@ -23,11 +23,19 @@
               },
               {
                 "sourceTag": "api-sample",
-                "onlyDependOnLibsWithTags": ["api-db", "api-common"]
+                "onlyDependOnLibsWithTags": [
+                  "api-db",
+                  "api-common",
+                  "prisma-test-fixture"
+                ]
               },
               {
                 "sourceTag": "api-user",
-                "onlyDependOnLibsWithTags": ["api-db", "api-common"]
+                "onlyDependOnLibsWithTags": [
+                  "api-db",
+                  "api-common",
+                  "prisma-test-fixture"
+                ]
               },
               {
                 "sourceTag": "api-firebase-auth",
@@ -35,7 +43,8 @@
                   "api-db",
                   "api-common",
                   "api-user",
-                  "api-sentry"
+                  "api-sentry",
+                  "prisma-test-fixture"
                 ]
               },
               {

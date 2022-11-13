@@ -7,8 +7,8 @@ import {
   Query,
   ResolveField,
   Resolver,
-  ID,
 } from '@nestjs/graphql';
+
 import { GqlPost } from './gql-post';
 import { GqlUser } from './gql-user';
 import { PaginationArgs } from './pagenation.args';

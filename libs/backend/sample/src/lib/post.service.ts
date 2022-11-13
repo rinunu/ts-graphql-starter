@@ -20,9 +20,12 @@ export class PostService {
     private timeService: TimeService
   ) {}
 
+  /**
+   * ループで使用すると n+1 が発生するので注意
+   */
   async findByUser(userId: string, pagination?: Pagination): Promise<Post[]> {
-    // この形では SQL 実行時に limit がかからないので、1ユーザーのデータ数が膨大になる場合は、 findUnique を使わない形に変えること
-    return this.prisma.user.findUnique({ where: { id: userId } }).posts({
+    return this.prisma.post.findMany({
+      where: { authorId: userId },
       skip: pagination?.skip,
       take: pagination?.take,
       orderBy: {
