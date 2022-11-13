@@ -43,7 +43,8 @@
                   "api-db",
                   "api-common",
                   "api-user",
-                  "api-sentry"
+                  "api-sentry",
+                  "prisma-test-fixture"
                 ]
               },
               {
