@@ -1,6 +1,7 @@
 import { Prisma, PrismaClient } from '@prisma/client';
 import PrismaAction = Prisma.PrismaAction;
 import { unique } from './unique';
+import { uncapitalize } from './uncapitalize';
 
 const touchedModels: string[] = [];
 
@@ -31,7 +32,7 @@ export function setupCleanupDatabase(prisma: PrismaClient) {
  * $executeRaw には対応していない
  */
 export async function cleanupDatabase(prisma: PrismaClient) {
-  const touchedModels2 = unique(touchedModels).map((it) => it.toLowerCase());
+  const touchedModels2 = unique(touchedModels).map((it) => uncapitalize(it));
 
   return await Promise.all(
     touchedModels2.map((model) =>
