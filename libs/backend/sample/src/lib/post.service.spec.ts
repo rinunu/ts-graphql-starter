@@ -38,7 +38,7 @@ describe('PostService', () => {
     });
 
     const posts = await subject.findByUser('u1');
-    expect(posts.map((it) => it.id)).toStrictEqual(['p2', 'p1']);
+    expect(posts.map((it) => it.id)).toStrictEqual(['p2', 'p3']);
   });
 
   it('findAll は全てのデータを新しいものから返す', async () => {
