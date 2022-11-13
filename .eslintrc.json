@@ -13,37 +13,37 @@
             "allow": [],
             "depConstraints": [
               {
-                "sourceTag": "api-bff",
+                "sourceTag": "backend-bff",
                 "onlyDependOnLibsWithTags": [
-                  "api-sample",
-                  "api-user",
-                  "api-firebase-auth",
-                  "api-sentry"
+                  "backend-sample",
+                  "backend-user",
+                  "backend-firebase-auth",
+                  "backend-sentry"
                 ]
               },
               {
-                "sourceTag": "api-sample",
+                "sourceTag": "backend-sample",
                 "onlyDependOnLibsWithTags": [
-                  "api-db",
-                  "api-common",
+                  "backend-db",
+                  "backend-common",
                   "prisma-test-fixture"
                 ]
               },
               {
-                "sourceTag": "api-user",
+                "sourceTag": "backend-user",
                 "onlyDependOnLibsWithTags": [
-                  "api-db",
-                  "api-common",
+                  "backend-db",
+                  "backend-common",
                   "prisma-test-fixture"
                 ]
               },
               {
-                "sourceTag": "api-firebase-auth",
+                "sourceTag": "backend-firebase-auth",
                 "onlyDependOnLibsWithTags": [
-                  "api-db",
-                  "api-common",
-                  "api-user",
-                  "api-sentry",
+                  "backend-db",
+                  "backend-common",
+                  "backend-user",
+                  "backend-sentry",
                   "prisma-test-fixture"
                 ]
               },

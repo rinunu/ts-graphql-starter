@@ -20,5 +20,5 @@
       }
     }
   },
-  "tags": ["api-firebase-auth"]
+  "tags": ["backend-firebase-auth"]
 }

@@ -30,5 +30,5 @@
       }
     }
   },
-  "tags": ["api-sentry"]
+  "tags": ["backend-sentry"]
 }
