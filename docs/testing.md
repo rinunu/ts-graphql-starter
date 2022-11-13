@@ -2,7 +2,7 @@
 
 以下をメインのテスト手法とする
 
-- Integration
+- Integration テスト
 - Storybook による VRT
 - E2E テスト
 
