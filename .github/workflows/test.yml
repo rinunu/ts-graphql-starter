@@ -25,7 +25,6 @@ jobs:
           MYSQL_USER: user
           MYSQL_PASSWORD: pass
           MYSQL_ROOT_PASSWORD: pass
-          BIND-ADDRESS: '0.0.0.0'
 
     env:
       DATABASE_URL: 'mysql://user:pass@localhost:13306/main_test_1'
